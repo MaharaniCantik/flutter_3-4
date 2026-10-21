@@ -36,9 +36,11 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.deepPurple,
         leading: Icon(Icons.person),
         title: Text('Dashboard Mahasiswa', style: TextStyle(fontSize: 20)),
+        foregroundColor: Colors.white,
+
         actions: [
           IconButton(
             onPressed: () {
@@ -48,6 +50,23 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
+      body: const Center(child: Text('Page Mahasiswa')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Tambah Mahasiswa');
+        },
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
+  }
+}
+
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
