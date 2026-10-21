@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
       body: const Center(child: Text('Page Mahasiswa')),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('Tambah Mahasiswa');
+          print('Tambah Mahasiswi');
         },
         child: const Icon(Icons.add),
       ),
