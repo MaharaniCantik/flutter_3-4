@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyMaterialApp());
+  runApp(MaterialApp());
 }
 
 class MyMaterialApp extends StatelessWidget {
@@ -10,54 +10,58 @@ class MyMaterialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tugas Aplikasi Mobile',
       debugShowCheckedModeBanner: false,
+      title: 'Aplikasi Mahasiswa',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
+          seedColor: Colors.purple,
           brightness: Brightness.dark,
         ),
       ),
       themeMode: ThemeMode.dark,
-      home: MyHomePage(),
+      home: MyPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class MyPage extends StatelessWidget {
+  const MyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.purple,
         leading: Icon(Icons.person),
-        title: Text('Dashboard Mahasiswa', style: TextStyle(fontSize: 20)),
         foregroundColor: Colors.white,
+        title: const Text('Dashboard Mahasiswa'),
 
         actions: [
           IconButton(
             onPressed: () {
-              print('Search Mahasiswa');
+              print('Mencari mahasiswa');
             },
             icon: const Icon(Icons.search),
           ),
         ],
       ),
-      body: const Center(child: Text('Page Mahasiswa')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('Tambah Mahasiswi');
-        },
-        child: const Icon(Icons.add),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Maharani Kusuma Dewi',
+              style: TextStyle(fontSize: 20, color: Colors.amber),
+            ),
+            Text('1124160211'),
+            Text('Aplikasi Mobile'),
+          ],
+        ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }
@@ -67,6 +71,9 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Profile Page')),
+      body: const Center(child: Text('Welcome Maharani!')),
+    );
   }
 }
