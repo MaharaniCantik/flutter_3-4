@@ -72,7 +72,10 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile Page')),
+      appBar: AppBar(
+        title: const Text('Profile Page'),
+        leading: Icon(Icons.waving_hand),
+      ),
       body: const Center(child: Text('Welcome Maharani!')),
     );
   }
