@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp());
+  runApp(const MyMaterialApp());
 }
 
 class MyMaterialApp extends StatelessWidget {
@@ -14,16 +14,18 @@ class MyMaterialApp extends StatelessWidget {
       title: 'Aplikasi Mahasiswa',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
-        useMaterial3: true,
+        useMaterial3: false,
       ),
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
+          seedColor: Colors.white,
           brightness: Brightness.dark,
         ),
+        brightness: Brightness.dark,
       ),
+
       themeMode: ThemeMode.dark,
-      home: MyPage(),
+      home: const MyPage(),
     );
   }
 }
@@ -37,13 +39,12 @@ class MyPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         leading: Icon(Icons.person),
-        foregroundColor: Colors.white,
         title: const Text('Dashboard Mahasiswa'),
-
+        foregroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: () {
-              print('Mencari mahasiswa');
+              print('Mencari data mahasiswa');
             },
             icon: const Icon(Icons.search),
           ),
@@ -53,12 +54,17 @@ class MyPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Maharani Kusuma Dewi',
-              style: TextStyle(fontSize: 20, color: Colors.amber),
+            Text('Maharani', style: TextStyle(color: Colors.amber)),
+            SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                );
+              },
+              child: const Text('Buka Halaman Profile'),
             ),
-            Text('1124160211'),
-            Text('Aplikasi Mobile'),
           ],
         ),
       ),
@@ -74,9 +80,16 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile Page'),
-        leading: Icon(Icons.waving_hand),
+        actions: [
+          IconButton(
+            onPressed: () {
+              print('kembali');
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+        ],
       ),
-      body: const Center(child: Text('Welcome Maharani!')),
+      body: Center(child: const Text('Profile Page')),
     );
   }
 }
