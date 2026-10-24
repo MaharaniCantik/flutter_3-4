@@ -83,7 +83,7 @@ class ProfilePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              print('kembali');
+              print('back');
             },
             icon: const Icon(Icons.arrow_back),
           ),
